@@ -1,0 +1,120 @@
+:root{
+    --header-background: #a38658;
+    --main-background: #e0d2ba;
+    --book-border-left: #6b4b38;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        'header'
+        'main';
+    height: 100vh;
+}
+
+svg{
+    width: 30px;
+    height: 30px;
+}
+
+/* --Header-- */
+header{
+    display: flex;
+    grid-area: header;
+    background-color: var(--header-background);
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+}
+
+.header-left > .logo-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.header-left > .logo-container svg{
+    width: 80px;
+    height: 80px;
+}
+
+.header-right nav > ul{
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    align-items: center;
+}
+
+.header-right nav > ul li{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --Main-- */
+main{
+    display: grid;
+    grid-area: main;
+    background-color: var(--main-background);
+}
+
+#books-container{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    padding: 1rem;
+}
+
+#books-container > .book-card-container{
+    background-color: white;
+    width: 380px;
+    height: 480px;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 12px solid var(--book-border-left);
+}
+
+.book-card-container .read-status-toggle-btn{
+    width: 30px;
+    height: 70px;
+    border: none;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+
+.book-card-container .remove-book-btn{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.book-title,
+.book-author{
+    text-align: center;
+}
+
+.book-title{
+    font-size: 1.75rem;
+    margin-top: auto;
+}
+
+.book-footer{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
