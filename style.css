@@ -1,8 +1,7 @@
 :root{
-    --header-bg: #a38658;
-    --main-bg: #e0d2ba;
-    --book-border-left: #6b4b38;
-    --new-book-bg: #f7f7f7;
+    --brown: #a38658;
+    --light-brown: #e0d2ba;
+    --dark-brown: #6b4b38;
 }
 
 *{
@@ -29,7 +28,7 @@ svg{
 header{
     display: flex;
     grid-area: header;
-    background-color: var(--header-bg);
+    background-color: var(--brown);
     justify-content: space-between;
     padding: 1rem;
     align-items: center;
@@ -62,7 +61,7 @@ header{
 main{
     display: grid;
     grid-area: main;
-    background-color: var(--main-bg);
+    background-color: var(--light-brown);
 }
 
 #books-container{
@@ -86,12 +85,12 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-left: 12px solid var(--book-border-left);
+    border-left: 12px solid var(--dark-brown);
 }
 
 #books-container > .add-new-book-card-container{
     border: none;
-    background-color: var(--book-border-left);
+    background-color: var(--dark-brown);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,4 +140,130 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* --Dialog Modal-- */
+dialog::backdrop{
+    background-color: var(--dark-brown);
+    opacity: 0.75;
+}
+
+dialog{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    border-radius: 15px;
+    margin: auto;
+    padding: 1.5rem;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+dialog h2{
+    font-size: 1.7rem;
+}
+
+dialog form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+}
+
+dialog form > div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+dialog form input[type="text"],
+dialog form input[type="number"]{
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    border: 2px solid var(--brown);
+    font-size: 1rem;
+}
+
+dialog form input[type="text"]:focus,
+dialog form input[type="number"]:focus{
+    outline: none;
+    border: 2px solid var(--dark-brown); 
+    background-color: #fffcf7;
+}
+
+dialog .form-read-status-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+dialog .radio-container{
+    display: flex;
+    gap: 1.65rem;
+}
+
+dialog input[type="radio"],
+dialog label[for="yes"]:hover,
+dialog label[for="no"]:hover{
+    cursor: pointer;
+}
+
+dialog input[type="radio"]{
+    appearance: none;
+    border: 1px solid var(--dark-brown);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+dialog input[type="radio"]::before{
+    content: "";
+    background-color: var(--dark-brown);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.25s ease;
+}
+
+dialog input[type="radio"]:checked:before{
+    transform: scale(1);
+}
+
+dialog .button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.yes-radio-container,
+.no-radio-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#cancel,
+#submit{
+    background-color: var(--dark-brown);
+    color: white;
+    padding: 1rem 3.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#cancel:hover,
+#submit:hover{
+    background-color: var(--brown);
 }
