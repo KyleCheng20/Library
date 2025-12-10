@@ -145,10 +145,10 @@ main{
 /* --Dialog Modal-- */
 dialog::backdrop{
     background-color: var(--dark-brown);
-    opacity: 0.75;
+    opacity: 0.85;
 }
 
-dialog{
+dialog[open]{
     display: flex;
     flex-direction: column;
     align-items: center;
