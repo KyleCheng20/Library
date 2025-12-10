@@ -1,4 +1,8 @@
-let booksContainer = document.querySelector('#books-container');
+const booksContainer = document.querySelector('#books-container');
+const dialog = document.querySelector('dialog');
+const cancelModal = document.querySelector('#cancel');
+const form = document.querySelector('form');
+
 
 let myLibrary = [];
 
@@ -19,8 +23,6 @@ function addBookToLibrary(title, author, pages, read){
 addBookToLibrary('The Giver', 'Lois Lowry', '240', true);
 addBookToLibrary('The Illustrated Man', 'Ray Bradbury', '304', true);
 addBookToLibrary('A Court of Thorns and Roses', 'Sara J. Maas', '448', false);
-
-
 
 function displayBooks(){
     booksContainer.innerHTML = '';
@@ -81,7 +83,41 @@ function displayBooks(){
             displayBooks();
         });
     }); 
+
+    const addNewBookCard = document.createElement('div');
+    addNewBookCard.classList.add('add-new-book-card-container');
+
+    const addNewBookBtn = document.createElement('button');
+    addNewBookBtn.classList.add('add-new-book-btn');
+    addNewBookBtn.textContent = '+';
+
+    addNewBookCard.appendChild(addNewBookBtn);
+
+    booksContainer.appendChild(addNewBookCard);
+
+    addNewBookBtn.addEventListener('click', () => {
+        dialog.showModal();
+    });
 }
+
+cancelModal.addEventListener('click', () => {
+    dialog.close();
+});
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const titleValue = document.querySelector('#title').value;
+    const authorValue = document.querySelector('#author').value;
+    const pageCount = document.querySelector('#pages').value;
+    const readStatus =  document.querySelector('input[name="read-status"]:checked').value;
+    const readStatusValue = readStatus === 'true';  //Convert string value to boolean
+
+    addBookToLibrary(titleValue, authorValue, pageCount, readStatusValue);
+    dialog.close();
+    form.reset();
+    displayBooks();
+});
 
 displayBooks();
 

@@ -9,6 +9,40 @@
     </head>
 
     <body>
+        <dialog>
+            <h2>Add New Book</h2>
+            <form>
+                <div class="form-title-container">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-author-container">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="form-pages-container">
+                    <label for="pages">Number of Pages:</label>
+                    <input type="number" id="pages" name="pages" required>
+                </div>
+                <div class="form-read-status-container">
+                    <p>Completed?</p>
+                    <div class="radio-container">
+                        <div class="yes-radio-container">
+                            <label for="yes">Yes</label>
+                            <input type="radio" id="yes" name="read-status" value="true">
+                        </div>
+                        <div class="no-radio-container">
+                            <label for="no">No</label>
+                            <input type="radio" id="no" name="read-status" value="false">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="cancel">Cancel</button>
+                    <button type="submit" id="submit">Submit</button>
+                </div>
+            </form>
+        </dialog>
         <div class="container">
             <header>
                 <div class="header-left">

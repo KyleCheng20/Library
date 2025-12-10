@@ -1,7 +1,8 @@
 :root{
-    --header-background: #a38658;
-    --main-background: #e0d2ba;
+    --header-bg: #a38658;
+    --main-bg: #e0d2ba;
     --book-border-left: #6b4b38;
+    --new-book-bg: #f7f7f7;
 }
 
 *{
@@ -28,7 +29,7 @@ svg{
 header{
     display: flex;
     grid-area: header;
-    background-color: var(--header-background);
+    background-color: var(--header-bg);
     justify-content: space-between;
     padding: 1rem;
     align-items: center;
@@ -61,26 +62,49 @@ header{
 main{
     display: grid;
     grid-area: main;
-    background-color: var(--main-background);
+    background-color: var(--main-bg);
 }
 
 #books-container{
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.book-card-container,
+.add-new-book-card-container{
+    width: 380px;
+    height: 480px;
     padding: 1rem;
 }
 
 #books-container > .book-card-container{
     background-color: white;
-    width: 380px;
-    height: 480px;
-    padding: 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-left: 12px solid var(--book-border-left);
+}
+
+#books-container > .add-new-book-card-container{
+    border: none;
+    background-color: var(--book-border-left);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-new-book-btn{
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 1.75rem;
+    cursor: pointer;
 }
 
 .book-card-container .read-status-toggle-btn{
