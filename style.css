@@ -121,7 +121,7 @@ main{
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: 1rem;
-    padding: 2rem 1rem;
+    padding: 3rem 1rem;
 }
 
 .book-card-container,
@@ -149,6 +149,7 @@ main{
     justify-content: center;
     align-items: center;
     transition: 0.2s ease;
+    border-radius: 10px;
 }
 
 #books-container > .add-new-book-card-container:has(.add-new-book-btn:hover){
@@ -376,4 +377,22 @@ dialog .button-container{
 #cancel:hover,
 #submit:hover{
     background-color: var(--brown);
+}
+
+/* --Github Link-- */
+.credit-link{
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.credit-link svg{
+    width: 30px;
+    height: 30px;
+    fill: var(--dark-brown);
+    transition: 0.2s ease;
+}
+
+.credit-link svg:hover{
+    fill: var(--brown);
 }
