@@ -6,7 +6,7 @@
 :root{
     --brown: #a38658;
     --light-brown: #e0d2ba;
-    --lighter-brown: #f0ede9;
+    --lighter-brown: #ede9e4;
     --dark-brown: #6b4b38;
     --darker-brown: #422f24;
 }
@@ -138,6 +138,7 @@ main{
     flex-direction: column;
     justify-content: center;
     border-left: 15px solid var(--dark-brown);
+    border-radius: 0 15px 15px 0;
 }
 
 #books-container > .add-new-book-card-container{
@@ -147,6 +148,11 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 0.2s ease;
+}
+
+#books-container > .add-new-book-card-container:has(.add-new-book-btn:hover){
+    background-color: var(--brown);
 }
 
 .add-new-book-btn{
@@ -157,6 +163,7 @@ main{
     font-size: 1.75rem;
     cursor: pointer;
 }
+
 
 .book-card-container .read-status-toggle-btn{
     width: 30px;
@@ -179,6 +186,11 @@ main{
     cursor: pointer;
     background-color: var(--dark-brown);
     color: white;
+    transition: 0.2s ease;
+}
+
+.book-card-container .remove-book-btn:hover{
+    background-color: var(--brown);
 }
 
 .book-title,
@@ -198,13 +210,31 @@ main{
     align-items: center;
 }
 
+.book-footer .fav-toggle-container svg{
+    fill: var(--dark-brown);
+    transition: 0.2s ease;
+}
+
+.book-footer .fav-toggle-container svg:hover{
+    fill: var(--brown);
+}
+
 /* --Dialog Modal-- */
 dialog::backdrop{
     background-color: var(--dark-brown);
-    opacity: 0.85;
+    animation: backdrop-fade 0.2s ease forwards;
 }
 
-dialog[open]{
+@keyframes backdrop-fade{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 0.85;
+    }
+}
+
+dialog{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -214,6 +244,22 @@ dialog[open]{
     padding: 1.5rem;
     gap: 1rem;
     font-size: 1.1rem;
+    opacity: 0;
+}
+
+dialog[open] {
+    animation: modal-pop 0.35s ease forwards;
+}
+
+@keyframes modal-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 dialog form label,

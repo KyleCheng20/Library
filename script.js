@@ -38,7 +38,7 @@ function displayBooks(){
         const bookAuthor = document.createElement('p');
         const bookPages = document.createElement('p');
         const readStatusBtn = document.createElement('button');
-        const favIcon = document.createElement('button');
+        const favIcon = document.createElement('div');
         const removeBookBtn = document.createElement('button');
         const bookFooter = document.createElement('div');
 
@@ -57,7 +57,7 @@ function displayBooks(){
         bookAuthor.classList.add('book-author');
         bookPages.classList.add('book-pages');
         readStatusBtn.classList.add('read-status-toggle-btn');
-        favIcon.classList.add('fav-toggle-btn');
+        favIcon.classList.add('fav-toggle-container');
         removeBookBtn.classList.add('remove-book-btn');
         bookFooter.classList.add('book-footer');
 
